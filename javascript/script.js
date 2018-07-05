@@ -1,71 +1,93 @@
-1. Computer is going to guess a number
-2. Im going to guess this number
-3. If its correct, I win the game and alert that I won
-4. If its incorrect, alert that incorrect and my number of guesses goes down
-5. ( I have 5 guesses to begin with)
-6. I lose the game when guesses become 0
+// Gobal veriables
+// ==========================================================================
 
 
-Step 1: Make the layout
--I would display intitial wins as 0, loses as 0, guesses as 5, guesses so far as nothing
--in my html:
-<p> Wins: <span id = "wins">0</span></p>
-
-Step 2: Give the computer an array of choices
--var choiceArray = [a, b,,c]
-
-Step 2.5: Create an empty array
--will hold what ive guessed already
 
 
-Step 3: Give the computer the ability to choose something from the array randomly
--Math.random: randomly picks a random number between 0 and 1
--Math.floor: rounds it off
--.length
-var computerGuess = Math.floor(Math.random() * choiceArray.length
-Step 4: You need to identify the key that has been pressed
--onkeyup: this will tell you what key was pressed, and you also assign this to a variable
-Step 5: Now make the comparisons!
--Is myGUess === computerGuess? (if)
-{
-    alert that I won!
-    wins ++
-    reset()
-}
-Else  (myGuess !== computerGuess) {
-    alert incorrect!
-    guesses --
-    .push-look this up var emptyArray = [];
-    if, guesses === 0 {
-        alert you have lost
-        losses ++
-        reset()
-    } 
-}
-Step 6; Add a reset function
--Reset guesse to 5, guesses so far will be empty again, make the computer choose again
+var wins = 0;
+ var loses = 0;
+ 
 
-function reset () {
-    -guesses=5;
-    guessesSoFar=[];
-    computerGuess = Mat.....
+// Created array of words
+var word = ["javascript", "red", "sterbend", "pink", "police"];
+
+// Choose word randomly
+var randNum = Math.floor(Math.random()*word.length);
+var wordSelected = word [randNum];
+var rGuess = [];
+var wGuess = [];
+var emptyArray = []; 
+
+console.log(wordSelected);
+// dom manipulation
+
+var docUnder = document.getElementsByClassName('emptyArray');
+var docRguess = document.getElementsByClassName('rGuess');
+var docWGuess = document.getElementsByClassName('wGuess');
+
+
+// Main
+// ==========================================================================
+console.log(wordSelected);
+// show amount of underscores based on the lenght of word
+var underScore = () => {
+
+    for  (var i =0 ; i < wordSelected.length; i ++){
+        emptyArray.push('_');
+        
+    }
+
+    return emptyArray;
 }
 
+console.log(underScore());
 
+// reduce number of guesses left
+// var guessLeft = () => {
 
-
-
-
-// $ (document).ready(function){
-//     var cpuHolder=$ ("cpuHolder");
-//     cpuHolder.text(math.floor(math.random() * 4 + 1))
-
-
-//     $("#choicehuman").on("click",function){
-//         var randNum = math.flor(math.random()* 4 + 1);
-//         $("#p1Holder").text("i chose:")
-
-
+//     for  (var i =0 ; i < wordSelected.length; i --){
+//         wGuess.push(i);
 //     }
 
+//     return wGuess;
 // }
+
+// console.log(guessLeft());
+
+
+
+// user guesses
+document.addEventListener('keypress', (event) => {
+    var keyword = string.fromcharcode(event.keycode);
+    
+// if users guess is right
+    if (wordSelected.indexOf.(keyword) > -1){
+        console.log (true); 
+
+        // add to right guess array
+        rGuess.push(keyword);
+        console.log (rGuess); 
+
+        // replace underscore with right letter
+        emptyArray[wordSelected.indexOf(keyword)] = keyword;
+        docUnder[0].innerHTML = emptyArray.join('');
+        docRguess[0].innerHTML = rGuess.join('');
+        
+
+        // check if user word matches guess
+        if (emptyArray.join('') == wordSelected){
+
+            alert('You win!')
+        }        
+    }
+    
+    else {
+
+        wGuess.push(keyword);
+        console.log (wGuess); 
+        docWguess[0].innerHTML =wGuess.join('');
+    }
+
+    docUnder[0].innerHTML = underScore.join('');
+});
+
