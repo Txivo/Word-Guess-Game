@@ -2,14 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
                 <!-- browser title -->
-
                 <title>Hangman</title>
-
                         <!-- css  -->
-                
                 <link rel="stylesheet" href="./assets/css/reset.css">
                 
                 <!-- javascript link -->
@@ -26,10 +21,7 @@ h1{
     text-align: center;
     background-color: grey;
     font-size: 50px;
-
 }
-
-
 .container {
     position: relative;
     text-align: center;
@@ -75,6 +67,16 @@ h1{
     top: 330px;
     left: 150px;
 }
+#guesses-remaining-section
+{
+    font-size: 30px;
+    text-align: left;
+    background-color: grey;
+    padding: 15px;
+    position: absolute;
+    top: 330px;
+    left: 150px;
+}
 
 .wordSelected{
     text-align: center;
@@ -96,6 +98,12 @@ h1{
     
 }
 
+.emptyArray {
+    font-size: 50px;
+    padding: 5px;
+    
+}
+
 .reset {
     text-align: center;
     top: -50px;
@@ -112,7 +120,6 @@ h1{
 <div class="jumbotron jumbotron-fluid"></div>
 <h1>Hangman</h1>
 
-
 <div class="container">
         <div class="press-any ">Press any key to start!</div>
   <img src="./assets/images/sterbend.jpg" alt="sterbend2" style="width:50%; opacity: 80%;">
@@ -121,14 +128,17 @@ h1{
   <!-- track of wins and loses -->
   <div class="wins">Wins: 0</div>
   <div class="loses">loses: 0</div>
-  
+  <div id="guesses-remaining-section">
+    Guessess Left: 
+    <div id="wGuess"></div>
+  </div>
 <!-- under scores of word selected -->
   <div class="emptyArray"></div>
 
   <!-- score of wrong guesses -->
-  <div class="wGuess">Guesses left:</div>
-   
+  
   <!-- letters guessed -->
+  
   <div class="rGuess">Letters guessed</div>
   
                                 <!-- reset button -->
